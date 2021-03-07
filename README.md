@@ -27,6 +27,34 @@ kubectl run springboot-k8s-example --image=yourname/springboot-k8s-example:0.0.1
 Alternatively, create a deployment.yaml and apply it
 ```bash
 kubectl create deployment springboot-k8s-example --image=yourname/springboot-k8s-example:0.0.1-SNAPSHOT --dry-run -o yaml > deployment.yaml
+```
+deployment.yaml
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: springboot-k8s-example
+  name: springboot-k8s-example
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springboot-k8s-example
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: springboot-k8s-example
+    spec:
+      containers:
+      - image: douster/springboot-k8s-example:0.0.2-SNAPSHOT
+        name: springboot-k8s-example
+        resources: {}
+status: {}
+
+```
+```
 kubectl apply -f deployment.yaml
 ```
 
