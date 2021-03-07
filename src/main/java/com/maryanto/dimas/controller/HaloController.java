@@ -12,10 +12,10 @@ import java.util.Map;
 @RequestMapping("/api")
 public class HaloController {
 
-    @GetMapping("/halo")
+    @GetMapping("/hello")
     public ResponseEntity<Map> halo() {
         Map<String, Object> param = new HashMap<>();
-        param.put("message", "Halo saya sedang belajar kubernates (k8s)");
+        param.put("message", "Hello kubernates (k8s)");
         return ResponseEntity.ok(param);
     }
 }
