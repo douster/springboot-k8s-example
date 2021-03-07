@@ -1,10 +1,12 @@
 # Springboot as service in kubernate (k8s)
 
 
-## configure kubernate
+## Configure kubernate
 
 System required: 
     https://www.docker.com/products/docker-desktop
+    
+Enable k8s in the docker-desktop
 
 
 ## Build application
@@ -16,7 +18,7 @@ using your docker hub, edit the pom.xml to replace
 mvn clean package dockerfile:build
 ```
 
-## create deployment springboot into k8s
+## Create deployment springboot into k8s
 
 ```bash
 kubectl run springboot-k8s-example --image=yourname/springboot-k8s-example:0.0.1-SNAPSHOT --port=8080
@@ -39,7 +41,7 @@ springboot-k8s-example   0/1     1            0           41s
 
 ## Expose port
 
-Export the service
+expose the service
 
 ```bash
 kubectl expose deployment springboot-k8s-example \
@@ -49,7 +51,7 @@ kubectl expose deployment springboot-k8s-example \
 --target-port=8080
 ```
 
-Get services
+get services
 ```
 kubectl get services
 
