@@ -10,7 +10,7 @@ Enable k8s in the docker-desktop
 
 
 ## Build application
-using your docker hub, edit the pom.xml to replace
+To push image into your docker-registry (docker-hub), edit the pom.xml to replace with yours:
   yourname/springboot-k8s-example
   
 
