@@ -51,6 +51,29 @@ kubectl expose deployment springboot-k8s-example \
 --target-port=8080
 ```
 
+Alternatively, create a service.yaml
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    visualize: "true"
+  name: springboot-k8s-service-example
+spec:
+  selector:
+    app: springboot-k8s-example
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+  type: LoadBalancer
+```
+```
+kubectl apply -f service.yaml
+```
+
 get services
 ```
 kubectl get services
